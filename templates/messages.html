@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submitted Messages</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Contact Form Submissions</h1>
+    <a href="/">Go Back to Home</a>
+    <hr>
+    
+    {% if messages %}
+        <table border="1" style="margin:auto; border-collapse: collapse; color: white;">
+            <tr style="background-color:#cc66ff;">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+            </tr>
+            {% for msg in messages %}
+            <tr>
+                <td>{{ msg[0] }}</td>
+                <td>{{ msg[1] }}</td>
+                <td>{{ msg[2] }}</td>
+                <td>{{ msg[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No messages submitted yet.</p>
+    {% endif %}
+</body>
+</html>

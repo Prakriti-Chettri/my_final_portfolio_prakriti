@@ -4,11 +4,30 @@ import os
 
 app = Flask(__name__)
 
-# Connect to PostgreSQL (Render will give DATABASE_URL)
+# ------------------------------
+# DATABASE CONNECTION
+# ------------------------------
+# Get database URL from Render environment variable
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
+# Connect to PostgreSQL
 conn = psycopg2.connect(DATABASE_URL)
 cursor = conn.cursor()
+
+# Auto-create table if it doesn't exist
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS contacts (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    email TEXT,
+    message TEXT
+);
+""")
+conn.commit()
+
+# ------------------------------
+# ROUTES
+# ------------------------------
 
 # Home page
 @app.route('/')
@@ -22,12 +41,22 @@ def submit():
     email = request.form.get('email')
     message = request.form.get('message')
 
-    # Insert into database
+    # Insert data into PostgreSQL
     query = "INSERT INTO contacts (name, email, message) VALUES (%s, %s, %s)"
     cursor.execute(query, (name, email, message))
     conn.commit()
 
-    return "<h2>Saved to database ✅</h2><a href='/'>Go Back</a>"
+    return "<h2>Form submitted successfully ✅</h2><a href='/'>Go Back</a>"
 
+# Admin page to view all submitted messages
+@app.route('/messages')
+def messages():
+    cursor.execute("SELECT id, name, email, message FROM contacts ORDER BY id DESC")
+    all_messages = cursor.fetchall()  # list of tuples
+    return render_template("messages.html", messages=all_messages)
+
+# ------------------------------
+# RUN APP
+# ------------------------------
 if __name__ == '__main__':
     app.run(debug=True)
