@@ -1,14 +1,13 @@
 from flask import Flask, render_template, request
 import psycopg2
-import os
 
 app = Flask(__name__)
 
 # ------------------------------
 # DATABASE CONNECTION
 # ------------------------------
-# Get database URL from Render environment variable
-DATABASE_URL = os.environ.get("DATABASE_URL")
+# Use your Render PostgreSQL database URL
+DATABASE_URL = "postgresql://portfolio_15a1_user:UgleefJCIBNtUPPzDxNnjAUqT8UaVszC@dpg-d723qp8ule4c73bfjov0-a.singapore-postgres.render.com/portfolio_15a1"
 
 # Connect to PostgreSQL
 conn = psycopg2.connect(DATABASE_URL)
