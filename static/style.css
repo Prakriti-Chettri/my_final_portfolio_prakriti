@@ -1,101 +1,172 @@
-body {
-    background-color: #1a0033;
-    color: white;
-    font-family: "Times New Roman", serif;
-    text-align: center;
-    margin: 20px;
-}
-
-/* Headings */
-h1 {
-    color: #cc66ff;
-    text-shadow: 0 0 10px #cc66ff;
-}
-
-h2 {
-    color: #e6ccff;
-    margin-top: 25px;
-}
-
-/* Tagline */
-.tagline {
-    color: #d9b3ff;
-    font-style: italic;
-}
-
-/* Image */
-img {
-    border-radius: 50%;
-    border: 2px solid #cc66ff;
-    box-shadow: 0 0 15px #cc66ff;
-    margin: 10px 0;
-}
-
-/* Sections spacing */
-p {
-    max-width: 600px;
-    margin: 10px auto;
-    line-height: 1.5;
-}
-
-/* Lists */
-ul {
-    list-style-type: none;
+/* GLOBAL */
+* {
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-li {
-    margin: 5px 0;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8c1d4, #f19bb8);
+    color: #333;
+    scroll-behavior: smooth;
 }
 
-/* Form */
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.profile {
+    width: 130px;
+    border-radius: 50%;
+    border: 4px solid #f8c8d8;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #c94f7c;
+}
+
+.tagline {
+    color: #777;
+    font-size: 14px;
+}
+
+/* CARD SECTIONS */
+.card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    margin: 20px auto;
+    padding: 25px;
+    width: 85%;
+    max-width: 800px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 182, 193, 0.2);
+}
+
+/* HEADINGS */
+h2 {
+    margin-bottom: 15px;
+    color: #b03060;
+}
+
+/* GRID SKILLS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.skill {
+    background: #f5b3c7;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: #f8c8d8;
+    transform: scale(1.05);
+}
+
+/* PROJECT */
+.project {
+    padding: 10px;
+    border-left: 3px solid #f8c8d8;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 input, textarea {
-    width: 250px;
-    padding: 8px;
-    border: 1px solid #cc66ff;
-    background-color: #330066;
-    color: white;
-    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #f8c8d8;
+    background: #fff;
 }
 
-input::placeholder, textarea::placeholder {
-    color: #d9b3ff;
-}
-
-/* Button */
+/* BUTTON */
 button {
-    padding: 8px 15px;
-    background-color: #cc66ff;
-    color: black;
+    background: linear-gradient(135deg, #e88aa6, #d96b93);
     border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: 600;
     cursor: pointer;
-    font-weight: bold;
+    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #e699ff;
-    box-shadow: 0 0 10px #cc66ff;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 182, 193, 0.4);
 }
 
-/* Divider */
-hr {
-    border: 1px solid #cc66ff;
-    width: 70%;
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #999;
 }
 
-/* Footer */
-footer, body > p:last-child {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #b366ff;
+.card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
 }
 
-/* Glow animation */
-h1 {
-    animation: glow 1.5s infinite alternate;
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 5px #cc66ff; }
-    to { text-shadow: 0 0 20px #cc66ff; }
+/* CENTER CONTAINER */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* HERO FIX */
+.hero {
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+/* CARD LAYOUT */
+.card {
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 16px;
+}
+
+/* ITEMS INSIDE SECTIONS */
+.item {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* GRID FOR SKILLS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
 }

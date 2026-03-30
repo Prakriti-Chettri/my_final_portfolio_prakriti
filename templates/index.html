@@ -6,20 +6,60 @@
 </head>
 
 <body>
+    <section class="hero">
     <h1>Prakriti Chettri</h1>
     <img src="{{ url_for('static', filename='profile.jpg') }}" width="120">
     <p class="tagline">
-        Aspiring Web Developer | BCA Student | Passionate Learner
-    </p>
+        Tech Enthusiast | BCA Student | Passionate Learner
+        </p>
+    </section>
     <hr>
+<div class="container">
 
+    <section class="card">
     <h2>About Me</h2>
     <p>
         I am a motivated BCA student with a strong interest in tech and business.
         I enjoy building simple and creative websites while learning new technologies.
         My goal is to become a full-stack developer and work on real-world projects.
+        I am exploring to leran,connect and contributeone step at a time.Alongside my academics,
+        I equally value contributing to the society through community initiatives.
     </p>
+    </section>
 
+    <section class="card">
+    <h2>Experience</h2>
+    <p>
+        <b>Volunteer – Inclusion Movement</b><br>
+        Worked with children with physical disabilities and contributed to awareness initiatives.<br><br>
+
+        <b>Women Empowerment Club</b><br>
+        Actively participated in community initiatives promoting women's growth and support.
+    </p>
+    </section>
+
+    <section class="card">
+    <h2>Education</h2>
+    <p>
+        <b>Bachelor of Computer Applications (BCA)</b><br>
+        Kristu Jayanti University (2025 – 2028)<br><br>
+
+        <b>Higher Secondary School</b><br>
+        Techno India Group Public School (2015 – 2024)
+    </p>
+    </section>
+
+
+    <section class="card">    
+        <h2>Languages Known</h2>
+    <ul>
+        <li>English</li>
+        <li>Hindi</li>
+        <li>Neplai</li>
+    </ul>
+    </section>
+
+    <section class="card">   
     <h2>Skills</h2>
     <ul>
         <li>HTML & CSS</li>
@@ -27,13 +67,20 @@
         <li>Git & GitHub</li>
         <li>PostgreSQL Database</li>
         <li>Problem Solving & Communication</li>
+        <li>Notion</li>
+        <li>Social Media Management</li>
+        <li>Canva</li>
+        <li>Python and C language</li>
     </ul>
+    </section>
 
+<section class="card">  
     <h2>Projects</h2>
     <p>
         <b>Portfolio Website:</b> Built with HTML, CSS, Flask, and PostgreSQL.
         Collects user data via contact form and stores it in a database.
     </p>
+</section>
 
     <h2>Contact Me</h2>
     <form action="/submit" method="POST">
@@ -42,8 +89,10 @@
         <textarea name="message" placeholder="Your Message" required></textarea><br><br>
         <button type="submit">Send Message</button>
     </form>
+</div>
 
     <hr>
     <p>© 2026 Prakriti Chettri | All Rights Reserved</p>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
